@@ -1,0 +1,7 @@
+{
+  "candidate_id": "J-0042",
+  "proposition": "Escalate the account for enhanced review.",
+  "source": "risk-model-v7",
+  "confidence": 0.97,
+  "evidence_refs": ["case:8841", "feature-set:2026-09-22"]
+}
