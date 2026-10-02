@@ -1,0 +1,138 @@
+{
+  "title": "When does an AI judgement become usable?",
+  "recorded_at": "2026-10-02T15:25:26.216037+00:00",
+  "python": "3.12.14",
+  "platform": "Linux",
+  "engine_baseline_commit": "2711ad534fcb0f60b5080aa875d579c424504d6a",
+  "execution": "Fresh local execution of unchanged engine with this demonstration driver",
+  "source_sha256": {
+    "src/latch_boundary/__init__.py": "afa34aa544e738e37eeebc7e66d3da6e83cd368e6d46c6507feef2f8530166d4",
+    "src/latch_boundary/cli.py": "3fed2daf80e29f04a86fa17ea6cf1b6f75b9b852371ce0884ae3c6c75c9035d0",
+    "src/latch_boundary/demo.py": "bf0dd9edc6b8f08fe6246afc014c4e0c0267732f33eaaaa7c748e6b23eea0652",
+    "src/latch_boundary/engine.py": "1c1f1f17e5505161f7792635fc2bcc5cc5aa46670bccda4ecd680727c19fddb4",
+    "src/latch_boundary/ledger.py": "c0e24fa121f5cd0f9313cbf2c5fb01b516515e6d69ecc42b6e4fbd1df46fd3ea",
+    "src/latch_boundary/models.py": "aa9613676d857a9f5b06a4c603d53dd0449f7908ec86d9714cb8be95317e936e",
+    "examples/standing_walkthrough.py": "9d4fdf6633a44327a6cb96daad62060305e4e7da04c8d4b87d44148c41ef4cdf"
+  },
+  "rows": [
+    {
+      "step": "Candidate at 97% confidence",
+      "outcome": "REFUSED",
+      "expected": "REFUSED",
+      "candidate_status": "candidate",
+      "confidence": 0.97,
+      "open_challenges": 0,
+      "new_receipts": 0,
+      "total_receipts": 0,
+      "detail": "candidate has not been explicitly adopted"
+    },
+    {
+      "step": "Adoption with model kind",
+      "outcome": "REFUSED",
+      "expected": "REFUSED",
+      "candidate_status": "candidate",
+      "confidence": 0.97,
+      "open_challenges": 0,
+      "new_receipts": 0,
+      "total_receipts": 0,
+      "detail": "model output cannot adopt itself"
+    },
+    {
+      "step": "Adopted for case routing",
+      "outcome": "ALLOWED",
+      "expected": "ALLOWED",
+      "candidate_status": "adopted",
+      "confidence": 0.97,
+      "open_challenges": 0,
+      "new_receipts": 1,
+      "total_receipts": 1,
+      "detail": {
+        "receipt_id": "rely_6a65868d914c",
+        "candidate_id": "J-0042",
+        "adoption_id": "adopt_18b873e0b4d1",
+        "relying_actor": "workflow-router",
+        "purpose": "record eligibility for case routing",
+        "scope": "case-routing",
+        "action_ref": "demo:route-request",
+        "relied_at": "2026-10-02T15:25:26.215365+00:00"
+      }
+    },
+    {
+      "step": "Attempt customer contact scope",
+      "outcome": "REFUSED",
+      "expected": "REFUSED",
+      "candidate_status": "adopted",
+      "confidence": 0.97,
+      "open_challenges": 0,
+      "new_receipts": 0,
+      "total_receipts": 1,
+      "detail": "reliance scope 'customer-contact' does not match adopted scope 'case-routing'"
+    },
+    {
+      "step": "Two open challenges",
+      "outcome": "REFUSED",
+      "expected": "REFUSED",
+      "candidate_status": "contested",
+      "confidence": 0.97,
+      "open_challenges": 2,
+      "new_receipts": 0,
+      "total_receipts": 1,
+      "detail": "candidate is contested: unresolved challenges make it ineligible for reliance"
+    },
+    {
+      "step": "One challenge still open",
+      "outcome": "REFUSED",
+      "expected": "REFUSED",
+      "candidate_status": "contested",
+      "confidence": 0.97,
+      "open_challenges": 1,
+      "new_receipts": 0,
+      "total_receipts": 1,
+      "detail": "candidate is contested: unresolved challenges make it ineligible for reliance"
+    },
+    {
+      "step": "Both challenges resolved",
+      "outcome": "ALLOWED",
+      "expected": "ALLOWED",
+      "candidate_status": "adopted",
+      "confidence": 0.97,
+      "open_challenges": 0,
+      "new_receipts": 1,
+      "total_receipts": 2,
+      "detail": {
+        "receipt_id": "rely_916f00c734b0",
+        "candidate_id": "J-0042",
+        "adoption_id": "adopt_18b873e0b4d1",
+        "relying_actor": "workflow-router",
+        "purpose": "record eligibility for case routing",
+        "scope": "case-routing",
+        "action_ref": "demo:route-request",
+        "relied_at": "2026-10-02T15:25:26.215659+00:00"
+      }
+    },
+    {
+      "step": "Adoption withdrawn",
+      "outcome": "REFUSED",
+      "expected": "REFUSED",
+      "candidate_status": "withdrawn",
+      "confidence": 0.97,
+      "open_challenges": 0,
+      "new_receipts": 0,
+      "total_receipts": 2,
+      "detail": "candidate has not been explicitly adopted"
+    }
+  ],
+  "receipt_count": 2,
+  "ledger": {
+    "verified": true,
+    "message": "verified 10 event(s)",
+    "events": 10
+  },
+  "limits": [
+    "Synthetic declared confidence; no model inference or classification evaluation",
+    "Local actor labels and authority references; no authenticated principal separation",
+    "Receipts are recorded; no account routing, customer contact or external execution occurs",
+    "Refusals are captured by this driver, not appended as refusal events by the engine",
+    "Hash verification establishes internal chain consistency, not trusted external custody"
+  ]
+}
