@@ -6,6 +6,8 @@ A model output can be accurate, evidence-backed and 99% confident and still have
 
 Latch makes that distinction executable.
 
+**Start with the worked example:** [When does an AI judgement become usable?](docs/WHEN_JUDGEMENT_BECOMES_USABLE.md) — eight observed outcomes, retained evidence and a one-command walkthrough. [Request a walkthrough of the existing demo](https://github.com/adamblackoak/latch/issues/new?template=walkthrough.md).
+
 ```text
 model output
    |

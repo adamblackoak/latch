@@ -26,3 +26,4 @@ jobs:
         run: |
           latch demo --ledger .demo/latch.jsonl
           latch verify .demo/latch.jsonl
+          python examples/standing_walkthrough.py
